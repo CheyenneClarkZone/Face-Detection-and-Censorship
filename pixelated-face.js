@@ -13,5 +13,5 @@ function populateVideo(){
   const stream = navigator.mediaDevices.getUserMedia({
     video: { width: 1280, height: 720 }
   });
-  console.log(stream);
+  console.log(stream); // issue
 }
