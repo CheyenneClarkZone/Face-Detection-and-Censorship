@@ -6,7 +6,6 @@ const faceCanvas = document.querySelector('.face');
 const faceCtx = canvas.getContext('2d');
 
 const faceDetector = new FaceDetector();
-console.log(video, canvas, faceCanvas, faceDetector);
 
 // Write a function that will populate the users video
 
@@ -14,4 +13,5 @@ function populateVideo(){
   const stream = navigator.mediaDevices.getUserMedia({
     video: { width: 1280, height: 720 }
   });
+  console.log(stream);
 }
