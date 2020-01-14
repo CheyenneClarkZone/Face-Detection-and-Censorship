@@ -15,3 +15,5 @@ function populateVideo(){
   });
   console.log(stream); // issue
 }
+
+console.log(populateVideo);
