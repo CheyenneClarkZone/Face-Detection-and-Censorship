@@ -15,6 +15,12 @@ async function populateVideo() {
   });
   video.srcObject = stream;
   await video.play();
+  //size the canvases to be the same size as video
+  console.log(video.videoWidth, video,videoHeight);
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  faceCanvas.width = video.videoWidth;
+  faceCanvas.height = video.videoHeight;
 }
 
 console.log(populateVideo);
