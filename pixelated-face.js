@@ -28,4 +28,4 @@ async function detect() {
   console.log(faces);
 }
 
-populateVideo();
+populateVideo().then(detect); //need to run .then after the video has been populated, because if you run detect when there's no video it won't find faces. It is a promise base.
