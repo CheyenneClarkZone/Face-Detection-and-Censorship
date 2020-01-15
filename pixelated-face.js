@@ -23,6 +23,9 @@ async function populateVideo() {
   faceCanvas.height = video.videoHeight;
 }
 
-console.log(populateVideo);
+async function detect() {
+  const faces = await faceDetector.detect(video); //new function to detect faces in the shot. New variable called faces, call await on it so it doesn't run until a promise is settled, then call to detect the face on faceDetector. Pass to that a video.
+  console.log(faces);
+}
 
 populateVideo();
