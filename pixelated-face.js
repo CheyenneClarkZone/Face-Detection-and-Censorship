@@ -9,25 +9,28 @@ const faceCtx = canvas.getContext("2d");
 const faceDetector = new FaceDetector();
 
 // Write a function that will populate the users video
-async function populateVideo() {
+async function populateVideo() { //await and async pause running until promise is done
   const stream = await navigator.mediaDevices.getUserMedia({
-    video: { width: 1920, height: 1080 }
+    video: { width: 1920, height: 1080 } //video width and height should be same as canvas for better quality
   });
-  video.srcObject = stream;
-  await video.play();
+  video.srcObject = stream; //stream the video
+  await video.play(); //await and async pause running until promise is done
   //size the canvases to be the same size as video
-  console.log(video.videoWidth, video.videoHeight);
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
+  console.log(video.videoWidth, video. videoHeight); //show the video width and height
+  canvas.width = video.videoWidth; //canvas and video width are the same / equal to each other
+  canvas.height = video.videoHeight; 
   faceCanvas.width = video.videoWidth;
   faceCanvas.height = video.videoHeight;
 }
 
-async function detect() {
+async function detect() { //detect the face when access is granted by user to use webcam
   const faces = await faceDetector.detect(video); //new function to detect faces in the shot. New variable called faces, call await on it so it doesn't run until a promise is settled, then call to detect the face on faceDetector. Pass to that a video.
-  console.log(faces.length);
+  console.log(faces.length); //show in console how many faces are being detected
   //ask the browser when the next animation frame is, and tell it to run detect for us.
   requestAnimationFrame(detect); //pass requestAnimationFrame a detect. Recursion - detect is being called from within detect, and that allows us to just be running it infinitely. 
+}
+function drawFace(face) {//create drawFace function which takes in user's face
+
 }
 
 populateVideo().then(detect);  //need to run .then after the video has been populated, because if you run detect when there's no video it won't find faces. It is a promise base.
