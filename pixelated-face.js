@@ -71,8 +71,8 @@ function censor({ boundingBox: face }) {
     SIZE, // no longer height and width of face, but h & w of the small image (which is why we put that in it's own variable)
     SIZE,
     // drawing args
-    face.x,
-    face.y,
+    face.x - (width - face.width) / 2,
+    face.y - (height - face.height) / 2,
     width, // replaced these 2 values with just our variables within height
     height // replaced these 2 values with just our variables within height
   );
