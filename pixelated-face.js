@@ -29,6 +29,7 @@ async function detect() { //detect the face when access is granted by user to us
 }
 function drawFace(face) {//create drawFace function which takes in user's face
 const {width, height, top, left} = face.boundingBox; // destructure everything in curly brackets out of the face.boundingBox
+ctx.clearRect(0, 0, canvas.width, canvas.height); //clear the amount of yellow boxes following the face / clears out canvas for us
 ctx.strokeStyle = '#ffc600'; // setting defaults
 ctx.lineWidth = 2; // How thick the line will be drawn (by default)
 ctx.strokeRect(left, top, width, height); //the API for drawing a rectangle
