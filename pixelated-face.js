@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d");
 const faceCanvas = document.querySelector(".face");
 const faceCtx = canvas.getContext("2d");
 const faceDetector = new FaceDetector();
+const SIZE = 10; // allow us to reference size later on. It's in caps to show, any variables that are constant throughout the application 
 
 // Write a function that will populate the users video
 async function populateVideo() { //await and async pause running until promise is done
@@ -38,8 +39,20 @@ ctx.strokeRect(left, top, width, height); //the API for drawing a rectangle
 
 function censor({boundingBox: face}) { // destructure the boundingBox property directly. 
   // draw the small face
-  faceCtx.drawImage(video, 0, 0); //video has been painted onto canvas so if you hide video element, it still shows video.
-  //take that face back out and draw it back at normal size
+  faceCtx.drawImage(
+    // 5 source args
+    video,  // where does the source come from?
+    face.x, // where do we start the source pull from?
+    face.y,
+    face.width,
+    face.height,
+    // 4 draw args (draw into base canvas)
+    face.x, // where do we start drawing the x and y?
+    face.y,
+    SIZE,
+    SIZE,
+  ); 
 }
+  //take that face back out and draw it back at normal size
 
 populateVideo().then(detect);  //need to run .then after the video has been populated, because if you run detect when there's no video it won't find faces. It is a promise base.
