@@ -37,7 +37,9 @@ ctx.strokeRect(left, top, width, height); //the API for drawing a rectangle
 }
 
 function censor({boundingBox: face}) { // destructure the boundingBox property directly. 
-  boundingBox;
+  // draw the small face
+
+  //take that face back out and draw it back at normal size
 }
 
 populateVideo().then(detect);  //need to run .then after the video has been populated, because if you run detect when there's no video it won't find faces. It is a promise base.
