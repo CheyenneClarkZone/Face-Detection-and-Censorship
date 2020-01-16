@@ -5,6 +5,7 @@ const faceCanvas = document.querySelector(".face");
 const faceCtx = faceCanvas.getContext("2d");
 const faceDetector = new window.FaceDetector();
 const SIZE = 10; // allow us to reference size later on. It's in caps to show, any variables that are constant throughout the application
+const SCALE = 1.5; //Make pixalation cover full face by using scaling 
 
 // Write a function that will populate the users video
 async function populateVideo() {
