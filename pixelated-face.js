@@ -54,5 +54,13 @@ function censor({boundingBox: face}) { // destructure the boundingBox property d
   ); 
 }
   //take that face back out and draw it back at normal size
+  faceCtx.drawImage(
+   faceCanvas,  //source (grab source from itself) 
+   face.x, 
+   face.y,
+   SIZE, // no longer height and width of face, but h & w of the small image (which is why we put that in it's own variable)
+   SIZE,
+   );
+
 
 populateVideo().then(detect);  //need to run .then after the video has been populated, because if you run detect when there's no video it won't find faces. It is a promise base.
