@@ -1,8 +1,8 @@
-const video = document.querySelector(".webcam"); //document.querySelector returns the first element within the document that matches rhe specified selector. 
-const canvas = document.querySelector(".video");
-const ctx = canvas.getContext("2d");
-const faceCanvas = document.querySelector(".face");
-const faceCtx = faceCanvas.getContext("2d");
+const video = document.querySelector('.webcam'); //document.querySelector returns the first element within the document that matches rhe specified selector. 
+const canvas = document.querySelector('.video');
+const ctx = canvas.getContext('2d');
+const faceCanvas = document.querySelector('.face');
+const faceCtx = faceCanvas.getContext('2d');
 const faceDetector = new FaceDetector();
 const SIZE = 10; // allow us to reference size later on. It's in caps to show, any variables that are constant throughout the application 
 
