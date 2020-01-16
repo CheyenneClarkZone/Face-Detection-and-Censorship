@@ -35,4 +35,8 @@ ctx.lineWidth = 2; // How thick the line will be drawn (by default)
 ctx.strokeRect(left, top, width, height); //the API for drawing a rectangle
 }
 
+function censor({boundingBox}) { // destructure the boundingBox property directly. 
+  boundingBox;
+}
+
 populateVideo().then(detect);  //need to run .then after the video has been populated, because if you run detect when there's no video it won't find faces. It is a promise base.
