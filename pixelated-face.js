@@ -38,7 +38,7 @@ ctx.strokeRect(left, top, width, height); //the API for drawing a rectangle
 
 function censor({boundingBox: face}) { // destructure the boundingBox property directly. 
   // draw the small face
-
+  faceCtx.drawImage(); // take second canvas element which is 'ctx'
   //take that face back out and draw it back at normal size
 }
 
