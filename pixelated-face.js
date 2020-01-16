@@ -5,7 +5,7 @@ const faceCanvas = document.querySelector(".face");
 const faceCtx = faceCanvas.getContext("2d");
 const faceDetector = new window.FaceDetector();
 const SIZE = 10; // allow us to reference size later on. It's in caps to show, any variables that are constant throughout the application
-const SCALE = 1.5; //Make pixalation cover full face by using scaling 
+const SCALE = 1.5; //Make pixalation cover full face by using scaling
 
 // Write a function that will populate the users video
 async function populateVideo() {
@@ -62,6 +62,8 @@ function censor({ boundingBox: face }) {
   );
 
   //take that face back out and draw it back at normal size
+  const width = face.width * SCALE;
+  const height = face.height * SCALE; //make a width and height, to scale up
   faceCtx.drawImage(
     faceCanvas, //source (grab source from itself)
     face.x,
@@ -71,8 +73,8 @@ function censor({ boundingBox: face }) {
     // drawing args
     face.x,
     face.y,
-    face.width,
-    face.height
+    width, // replaced these 2 values with just our variables within height
+    height // replaced these 2 values with just our variables within height
   );
 }
 
