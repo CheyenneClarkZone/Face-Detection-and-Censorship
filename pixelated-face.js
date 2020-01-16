@@ -2,7 +2,7 @@ const video = document.querySelector(".webcam"); //document.querySelector return
 const canvas = document.querySelector(".video");
 const ctx = canvas.getContext("2d");
 const faceCanvas = document.querySelector(".face");
-const faceCtx = canvas.getContext("2d");
+const faceCtx = faceCanvas.getContext("2d");
 const faceDetector = new FaceDetector();
 const SIZE = 10; // allow us to reference size later on. It's in caps to show, any variables that are constant throughout the application 
 
@@ -60,6 +60,11 @@ function censor({boundingBox: face}) { // destructure the boundingBox property d
    face.y,
    SIZE, // no longer height and width of face, but h & w of the small image (which is why we put that in it's own variable)
    SIZE,
+   // drawing args
+   face.x,
+   face.y,
+   face.width,
+   face.height,
    );
 
 
