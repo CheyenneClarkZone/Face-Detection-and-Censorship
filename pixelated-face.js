@@ -25,6 +25,7 @@ async function detect() { //detect the face when access is granted by user to us
   console.log(faces.length); //show in console how many faces are being detected
   //ask the browser when the next animation frame is, and tell it to run detect for us.
   faces.forEach(drawFace); // passed it the drawFace callback function, and for each face found it will log the face
+  faces.forEach(censor); // For each face found, it'll censor it
   requestAnimationFrame(detect); //pass requestAnimationFrame a detect. Recursion - detect is being called from within detect, and that allows us to just be running it infinitely. 
 }
 function drawFace(face) {//create drawFace function which takes in user's face
