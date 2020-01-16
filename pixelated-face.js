@@ -1,4 +1,4 @@
-const video = document.querySelector(".webcam");
+const video = document.querySelector(".webcam"); //document.querySelector returns the first element within the document that matches rhe specified selector. 
 
 const canvas = document.querySelector(".video");
 const ctx = canvas.getContext("2d");
@@ -27,6 +27,7 @@ async function detect() { //detect the face when access is granted by user to us
   const faces = await faceDetector.detect(video); //new function to detect faces in the shot. New variable called faces, call await on it so it doesn't run until a promise is settled, then call to detect the face on faceDetector. Pass to that a video.
   console.log(faces.length); //show in console how many faces are being detected
   //ask the browser when the next animation frame is, and tell it to run detect for us.
+  faces.forEach(drawFace); // passed it the drawFace callback function, and for each face found it will log the face
   requestAnimationFrame(detect); //pass requestAnimationFrame a detect. Recursion - detect is being called from within detect, and that allows us to just be running it infinitely. 
 }
 function drawFace(face) {//create drawFace function which takes in user's face
