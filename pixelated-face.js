@@ -1,11 +1,8 @@
 const video = document.querySelector(".webcam"); //document.querySelector returns the first element within the document that matches rhe specified selector. 
-
 const canvas = document.querySelector(".video");
 const ctx = canvas.getContext("2d");
-
 const faceCanvas = document.querySelector(".face");
 const faceCtx = canvas.getContext("2d");
-
 const faceDetector = new FaceDetector();
 
 // Write a function that will populate the users video
@@ -31,7 +28,10 @@ async function detect() { //detect the face when access is granted by user to us
   requestAnimationFrame(detect); //pass requestAnimationFrame a detect. Recursion - detect is being called from within detect, and that allows us to just be running it infinitely. 
 }
 function drawFace(face) {//create drawFace function which takes in user's face
-  const {width, height, top, left} = face.boundingBox; // destructure everything in curly brackets out of the face.boundingBox
+const {width, height, top, left} = face.boundingBox; // destructure everything in curly brackets out of the face.boundingBox
+ctx.strokeStyle = '#ffc600'; // setting defaults
+ctx.lineWidth = 2; // How thick the line will be drawn (by default)
+ctx.strokeRect(left, top, width, height); //the API for drawing a rectangle
 }
 
 populateVideo().then(detect);  //need to run .then after the video has been populated, because if you run detect when there's no video it won't find faces. It is a promise base.
