@@ -31,7 +31,7 @@ async function detect() { //detect the face when access is granted by user to us
   requestAnimationFrame(detect); //pass requestAnimationFrame a detect. Recursion - detect is being called from within detect, and that allows us to just be running it infinitely. 
 }
 function drawFace(face) {//create drawFace function which takes in user's face
-
+  const {width, height, top, left} = face.boundingBox; // destructure everything in curly brackets out of the face.boundingBox
 }
 
 populateVideo().then(detect);  //need to run .then after the video has been populated, because if you run detect when there's no video it won't find faces. It is a promise base.
