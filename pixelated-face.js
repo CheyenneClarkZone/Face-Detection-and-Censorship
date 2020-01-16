@@ -35,7 +35,7 @@ ctx.lineWidth = 2; // How thick the line will be drawn (by default)
 ctx.strokeRect(left, top, width, height); //the API for drawing a rectangle
 }
 
-function censor({boundingBox}) { // destructure the boundingBox property directly. 
+function censor({boundingBox: face}) { // destructure the boundingBox property directly. 
   boundingBox;
 }
 
